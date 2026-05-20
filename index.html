@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Anik Jiménez Marulanda — Escritora</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Karla:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles/styles.css">
+</head>
+<body>
+
+<nav class="top" id="nav">
+  <div class="row">
+    <a class="brandmark" href="index.html">Anik <span>Jiménez Marulanda</span></a>
+    <div class="nav-links">
+      <a href="sobre.html">Sobre Anik</a>
+      <a href="libros.html">Mis libros</a>
+      <a href="palabra.html">Una palabra</a>
+      <a href="contacto.html">Contacto<>/a>
+    </div>
+  </div>
+</nav>
+
+<main>
+  <header class="hero" data-screen-label="01 Hero">
+    <div class="watercolor" aria-hidden="true">
+      <div class="bloom b3"></div>
+      <div class="bloom b1"></div>
+      <div class="bloom b2"></div>
+      <div class="bloom b4"></div>
+      <div class="bloom b5"></div>
+    </div>
+    <div class="grain" aria-hidden="true"></div>
+
+    <div class="hero-inner">
+      <div class="eyebrow">Escritora · Memorias</div>
+      <h1 class="name">Anik <span class="em">Jiménez</span><br/>Marulanda</h1>
+      <p class="tagline">«Escribo lo que la vida me enseñó a través del dolor y la resiliencia.»</p>
+      <div class="cta-row">
+        <a href="libros.html" class="btn">Conoce mis libros <span class="arrow">→</span></a>
+        <a href="sobre.html" class="btn btn-ghost">Sobre mí</a>
+      </div>
+    </div>
+  </header>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-row">
+      <div class="mark">Anik Jiménez Marulanda</div>
+      <div>© 2026 · Hecho con calma desde Colombia</div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const nav = document.getElementById('nav');
+  const onScroll = () => {
+    if (window.scrollY > 16) nav.classList.add('scrolled');
+    else nav.classList.remove('scrolled');
+  };
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+</script>
+</body>
+</html>
