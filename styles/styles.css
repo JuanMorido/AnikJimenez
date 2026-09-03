@@ -312,12 +312,32 @@ nav.top .row {
   position: relative;
   z-index: 1;
 }
+.values-layout {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 48px;
+  align-items: start;
+}
+@media (max-width: 820px) {
+  .values-layout { grid-template-columns: 1fr; gap: 28px; }
+  .values-photo { max-width: 280px; }
+}
+.values-photo {
+  border-radius: 2px;
+  overflow: hidden;
+  box-shadow: 0 22px 40px -22px rgba(42, 53, 64, 0.35);
+}
+.values-photo img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+}
 .values-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 28px 36px;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px 32px;
 }
-@media (max-width: 820px) { .values-grid { grid-template-columns: 1fr 1fr; } }
 @media (max-width: 520px) { .values-grid { grid-template-columns: 1fr; } }
 .value h3 {
   margin: 0 0 8px;
@@ -332,6 +352,72 @@ nav.top .row {
   font-size: 16px;
   color: var(--ink-2);
   line-height: 1.55;
+}
+
+.propuesta-grid {
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  gap: 56px;
+  align-items: start;
+  position: relative;
+  z-index: 1;
+}
+@media (max-width: 820px) {
+  .propuesta-grid { grid-template-columns: 1fr; gap: 32px; }
+  .propuesta-photo { max-width: 360px; }
+}
+.genres-title {
+  margin: 36px 0 16px;
+  font-family: "Source Serif 4", serif;
+  font-style: italic;
+  font-weight: 500;
+  font-size: 28px;
+  color: var(--teal-deep);
+}
+.genres {
+  margin: 0;
+  padding: 0 0 0 1.2em;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  color: var(--ink-2);
+  font-size: 16px;
+  line-height: 1.55;
+  max-width: 54ch;
+}
+.genres strong { color: var(--ink); font-weight: 600; }
+
+.obra-intro {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 40px;
+  align-items: center;
+  margin-bottom: 56px;
+  position: relative;
+  z-index: 1;
+}
+@media (max-width: 620px) {
+  .obra-intro { grid-template-columns: 1fr; gap: 24px; }
+  .obra-portrait { max-width: 220px; }
+}
+.obra-portrait {
+  aspect-ratio: 1;
+  border-radius: 50%;
+  overflow: hidden;
+  box-shadow: 0 22px 40px -22px rgba(42, 53, 64, 0.4);
+}
+.obra-portrait img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.obra-lead {
+  margin: 0;
+  font-style: italic;
+  font-size: clamp(18px, 2vw, 22px);
+  color: var(--ink-2);
+  max-width: 42ch;
+  line-height: 1.5;
 }
 
 .split-band {
