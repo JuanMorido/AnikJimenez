@@ -1,105 +1,94 @@
 <!doctype html>
 <html lang="es">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Contacto — Anik Jiménez Marulanda</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Outfit:wght@400;500;600&family=Source+Serif+4:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles/styles.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Contacto — Anik Jiménez Marulanda</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Outfit:wght@400;500;600&family=Source+Serif+4:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles/styles.css" />
 </head>
 <body>
-
-<nav class="top" id="nav">
-  <div class="row">
-    <a class="brandmark" href="index.html">Anik Jiménez<span>Marulanda</span></a>
-    <div class="nav-links">
-      <a href="sobre.html">Sobre Anik</a>
-      <a href="libros.html">Mis libros</a>
-      <a href="palabra.html">Una palabra</a>
-      <a href="contacto.html" class="active">Contacto</a>
-    </div>
-  </div>
-</nav>
-
-<main>
-  <section class="page" data-screen-label="05 Contacto">
-    <div class="tri-bg" aria-hidden="true">
-      <svg viewBox="0 0 1200 800" preserveAspectRatio="xMidYMid slice">
-        <g opacity=".5">
-          <path d="M20 160 L160 40 L220 280 Z" fill="rgba(126,177,183,.25)" />
-          <path d="M980 560 L1140 420 L1200 760 Z" fill="rgba(61,107,117,.22)" />
-          <path d="M900 680 L1040 560 L1100 820 Z" fill="rgba(226,216,198,.45)" />
-        </g>
-      </svg>
-    </div>
-    <div class="wrap">
-      <div class="section-head">
-        <span class="section-num">iv.</span>
-        <h2 class="section-title">Gracias</h2>
+  <nav class="nav" id="nav">
+    <div class="nav-inner">
+      <a class="logo" href="index.html">Anik Jiménez</a>
+      <div class="menu">
+        <a href="sobre.html">Sobre Anik</a>
+        <a href="libros.html">Mis libros</a>
+        <a href="palabra.html">Una palabra</a>
+        <a href="contacto.html" aria-current="page">Contacto</a>
       </div>
+    </div>
+  </nav>
 
-      <div class="contact-grid">
-        <div class="contact-intro">
-          <p>Si mi historia resonó contigo, me encantaría saber.</p>
-          <ul class="contact-list">
-            <li><strong>Correo</strong> <a href="mailto:anikjimenez@gmail.com">anikjimenez@gmail.com</a></li>
-            <li><strong>Web</strong> <a href="https://anikjimenez.com">anikjimenez.com</a></li>
-            <li><strong>Teléfono</strong> <a href="tel:+573124131029">(+57) 312 413 1029</a></li>
-            <li><strong>Instagram</strong> <a href="https://instagram.com/anikjimenez" target="_blank" rel="noopener noreferrer">@anikjimenez</a></li>
-            <li><strong>Ciudad</strong> Bogotá · Colombia</li>
-          </ul>
+  <main>
+    <section class="section section-sand" data-screen-label="11 Contacto">
+      <div class="triangles" aria-hidden="true">
+        <svg viewBox="0 0 1200 700" preserveAspectRatio="xMidYMid slice">
+          <g opacity=".5">
+            <path d="M30 150 L170 40 L220 270 Z" fill="rgba(126,175,181,.22)" />
+            <path d="M980 480 L1140 340 L1200 700 Z" fill="rgba(61,107,117,.2)" />
+            <path d="M900 600 L1040 480 L1100 740 Z" fill="rgba(226,216,198,.4)" />
+          </g>
+        </svg>
+      </div>
+      <div class="wrap">
+        <div class="section-head">
+          <span class="section-num">i.</span>
+          <h2 class="section-title">Gracias</h2>
         </div>
 
-        <form class="contact" action="mailto:anikjimenez@gmail.com" method="get" enctype="text/plain" onsubmit="event.preventDefault(); const e=document.getElementById('email').value; const m=document.getElementById('msg').value; window.location.href='mailto:anikjimenez@gmail.com?subject='+encodeURIComponent('Mensaje desde anikjimenez.com')+'&body='+encodeURIComponent('De: '+e+'\n\n'+m);">
-          <div class="field">
-            <label for="email">Tu correo</label>
-            <input id="email" name="email" type="email" placeholder="nombre@correo.com" required />
+        <div class="contact-grid">
+          <div class="copy">
+            <p class="lead">Si mi historia resonó contigo, me encantaría saberlo.</p>
+            <ul class="contact-list">
+              <li><strong>Correo</strong> <a href="mailto:anikjimenez@gmail.com">anikjimenez@gmail.com</a></li>
+              <li><strong>Web</strong> <a href="https://anikjimenez.com">anikjimenez.com</a></li>
+              <li><strong>Teléfono</strong> <a href="tel:+573124131029">(+57) 312 413 1029</a></li>
+              <li><strong>Instagram</strong> <a href="https://instagram.com/anikjimenez" target="_blank" rel="noopener noreferrer">@anikjimenez</a></li>
+              <li><strong>Ciudad</strong> Bogotá · Colombia</li>
+            </ul>
           </div>
-          <div class="field">
-            <label for="msg">Tu mensaje</label>
-            <textarea id="msg" name="msg" placeholder="Cuéntame lo que quieras compartir…" required></textarea>
-          </div>
-          <div class="submit-row">
-            <button type="submit" class="btn">Enviar mensaje <span class="arrow">→</span></button>
-          </div>
-        </form>
+
+          <form
+            class="contact-form"
+            onsubmit="event.preventDefault(); const e=email.value.trim(); const m=msg.value.trim(); window.location.href='mailto:anikjimenez@gmail.com?subject='+encodeURIComponent('Mensaje desde anikjimenez.com')+'&body='+encodeURIComponent('De: '+e+'\n\n'+m);"
+          >
+            <div class="field">
+              <label for="email">Tu correo</label>
+              <input id="email" name="email" type="email" placeholder="nombre@correo.com" required />
+            </div>
+            <div class="field">
+              <label for="msg">Tu mensaje</label>
+              <textarea id="msg" name="msg" placeholder="Cuéntame lo que quieras compartir…" required></textarea>
+            </div>
+            <button class="btn" type="submit">Enviar mensaje <span>→</span></button>
+          </form>
+        </div>
       </div>
-    </div>
+    </section>
 
     <div class="page-nav">
-      <div class="page-nav-row">
-        <a href="palabra.html">
-          <span class="step">← Anterior</span>
-          <span class="label">Una palabra</span>
-        </a>
-        <a href="index.html" class="next">
-          <span class="step">Volver al →</span>
-          <span class="label">Inicio</span>
-        </a>
+      <div class="page-nav-inner">
+        <a href="palabra.html"><span>← Anterior</span><strong>Una palabra</strong></a>
+        <a class="next" href="index.html"><span>Volver al →</span><strong>Inicio</strong></a>
       </div>
     </div>
-  </section>
-</main>
+  </main>
 
-<footer>
-  <div class="wrap">
-    <div class="foot-row">
+  <footer class="footer">
+    <div class="footer-inner">
       <div class="mark">Anik Jiménez</div>
       <div>© 2026 · Bogotá, Colombia</div>
     </div>
-  </div>
-</footer>
+  </footer>
 
-<script>
-  const nav = document.getElementById('nav');
-  const onScroll = () => {
-    if (window.scrollY > 16) nav.classList.add('scrolled');
-    else nav.classList.remove('scrolled');
-  };
-  window.addEventListener('scroll', onScroll, { passive: true });
-  onScroll();
-</script>
+  <script>
+    const nav = document.getElementById('nav');
+    const onScroll = () => nav.classList.toggle('is-scrolled', window.scrollY > 12);
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+  </script>
 </body>
 </html>

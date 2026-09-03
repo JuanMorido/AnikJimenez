@@ -1,29 +1,27 @@
-# Anik Jiménez Marulanda — Sitio web personal
+# Anik Jiménez Marulanda — Sitio web
 
-Sitio estático para la escritora colombiana Anik Jiménez Marulanda. Desplegado en GitHub Pages.
+Sitio estático personal de la escritora colombiana Anik Jiménez Marulanda. El diseño y el contenido siguen su portafolio creativo (beige/teal, firma tipográfica y motivos triangulares).
 
 ## Páginas
 
-| Archivo | Ruta | Contenido |
-|---|---|---|
-| `index.html` | `/` | Inicio / portada |
-| `sobre.html` | `/sobre.html` | Biografía, valores, misión y visión |
-| `libros.html` | `/libros.html` | Libros publicados y próximos |
-| `palabra.html` | `/palabra.html` | Cita destacada |
-| `contacto.html` | `/contacto.html` | Datos de contacto y formulario |
+| Archivo | Contenido |
+|---|---|
+| `index.html` | Portada / marca |
+| `sobre.html` | Biografía, valores, misión, visión, propuesta, proyección |
+| `libros.html` | Obra publicada y próxima |
+| `palabra.html` | Cita e impacto |
+| `contacto.html` | Datos de contacto y formulario |
 
-## Desarrollo local
+Las fotos en `images/` son **placeholders** recortados del portafolio y del PDF de información; se pueden reemplazar luego por los archivos originales.
 
-Sin pasos de compilación. Abre los archivos directamente en el navegador o levanta un servidor estático:
+## Vista local
 
 ```bash
 python3 -m http.server 8080
 ```
 
-Luego abre `http://localhost:8080`.
+Abre `http://localhost:8080`.
 
 ## Despliegue
 
-El sitio se despliega automáticamente en GitHub Pages desde la rama `main`. No se requiere ningún paso de build.
-
-Para configurarlo por primera vez: **Settings → Pages → Source → Deploy from branch → `main` / `(root)`**.
+GitHub Pages desde `main` (raíz del repo). Sin build.

@@ -1,72 +1,66 @@
 <!doctype html>
 <html lang="es">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Anik Jiménez Marulanda — Escritora</title>
-<meta name="description" content="Escritora colombiana. Historias de fe, resiliencia y esperanza desde Bogotá." />
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Outfit:wght@400;500;600&family=Source+Serif+4:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles/styles.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Anik Jiménez Marulanda — Escritora</title>
+  <meta name="description" content="Escritora colombiana. Historias de fe, resiliencia y esperanza desde Bogotá." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Outfit:wght@400;500;600&family=Source+Serif+4:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles/styles.css" />
 </head>
 <body>
-
-<nav class="top" id="nav">
-  <div class="row">
-    <a class="brandmark" href="index.html">Anik Jiménez<span>Marulanda</span></a>
-    <div class="nav-links">
-      <a href="sobre.html">Sobre Anik</a>
-      <a href="libros.html">Mis libros</a>
-      <a href="palabra.html">Una palabra</a>
-      <a href="contacto.html">Contacto</a>
-    </div>
-  </div>
-</nav>
-
-<main>
-  <header class="hero" data-screen-label="01 Hero">
-    <div class="tri-bg" aria-hidden="true">
-      <svg viewBox="0 0 1200 800" preserveAspectRatio="xMidYMid slice">
-        <g opacity=".55" fill="none" stroke="#7eb1b7" stroke-width="1.2">
-          <path d="M40 120 L160 40 L220 200 Z" fill="rgba(126,177,183,.18)" />
-          <path d="M80 520 L200 420 L260 620 Z" fill="rgba(90,138,154,.12)" />
-          <path d="M980 620 L1120 480 L1180 740 Z" fill="rgba(61,107,117,.22)" />
-          <path d="M900 700 L1040 580 L1100 780 Z" fill="rgba(183,207,210,.35)" />
-          <path d="M860 760 L980 680 L1020 820 Z" fill="rgba(226,216,198,.4)" />
-          <path d="M1080 180 L1160 80 L1200 240 Z" fill="rgba(126,177,183,.15)" />
-        </g>
-      </svg>
-    </div>
-    <div class="hero-inner">
-      <div class="eyebrow">Escritora · Bogotá</div>
-      <h1 class="hero-brand">Anik<span class="full">Jiménez Marulanda</span></h1>
-      <p class="tagline">Historias que acompañan el caminar: fe, resiliencia y sentido ante la existencia.</p>
-      <div class="cta-row">
-        <a href="libros.html" class="btn">Conoce mis libros <span class="arrow">→</span></a>
-        <a href="sobre.html" class="btn btn-ghost">Sobre mí</a>
+  <nav class="nav" id="nav">
+    <div class="nav-inner">
+      <a class="logo" href="index.html">Anik Jiménez</a>
+      <div class="menu">
+        <a href="sobre.html">Sobre Anik</a>
+        <a href="libros.html">Mis libros</a>
+        <a href="palabra.html">Una palabra</a>
+        <a href="contacto.html">Contacto</a>
       </div>
     </div>
-  </header>
-</main>
+  </nav>
 
-<footer>
-  <div class="wrap">
-    <div class="foot-row">
+  <main>
+    <header class="hero" data-screen-label="01 Portada">
+      <div class="triangles" aria-hidden="true">
+        <svg viewBox="0 0 1400 900" preserveAspectRatio="xMidYMid slice">
+          <g fill="none" stroke="#7eafb5" stroke-width="1.2" opacity=".7">
+            <path d="M60 160 L190 50 L250 260 Z" fill="rgba(126,175,181,.16)" />
+            <path d="M110 620 L250 500 L310 740 Z" fill="rgba(90,138,154,.1)" />
+            <path d="M1120 180 L1240 70 L1320 260 Z" fill="rgba(126,175,181,.14)" />
+            <path d="M1040 680 L1200 520 L1300 820 Z" fill="rgba(61,107,117,.2)" />
+            <path d="M960 760 L1110 620 L1180 860 Z" fill="rgba(226,216,198,.35)" />
+            <path d="M880 820 L980 740 L1020 900 Z" fill="rgba(183,207,210,.28)" />
+          </g>
+        </svg>
+      </div>
+      <div class="hero-content">
+        <div class="hero-kicker">Escritora · Bogotá</div>
+        <h1 class="hero-name">Anik<small>Jiménez Marulanda</small></h1>
+        <p class="hero-tag">Historias que acompañan el caminar: fe, resiliencia y sentido ante la existencia.</p>
+        <div class="hero-actions">
+          <a class="btn" href="libros.html">Conoce mis libros <span>→</span></a>
+          <a class="btn btn-ghost" href="sobre.html">Sobre mí</a>
+        </div>
+      </div>
+    </header>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
       <div class="mark">Anik Jiménez</div>
       <div>© 2026 · Bogotá, Colombia</div>
     </div>
-  </div>
-</footer>
+  </footer>
 
-<script>
-  const nav = document.getElementById('nav');
-  const onScroll = () => {
-    if (window.scrollY > 16) nav.classList.add('scrolled');
-    else nav.classList.remove('scrolled');
-  };
-  window.addEventListener('scroll', onScroll, { passive: true });
-  onScroll();
-</script>
+  <script>
+    const nav = document.getElementById('nav');
+    const onScroll = () => nav.classList.toggle('is-scrolled', window.scrollY > 12);
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+  </script>
 </body>
 </html>
