@@ -8,11 +8,12 @@ Static personal website for **Anik Jiménez Marulanda**, a Colombian writer. Fiv
 
 ```
 index.html      # Home / hero
-sobre.html      # About the author
+sobre.html      # Biography, values, mission, vision
 libros.html     # Books
 palabra.html    # Featured quote page
-contacto.html   # Contact form (frontend-only, fires an alert on submit)
+contacto.html   # Contact details + mailto form
 styles.css      # All styles for all pages
+images/         # Author photos and book cover
 ```
 
 ## Development
@@ -28,16 +29,10 @@ python3 -m http.server 8080
 
 **Shared structure** — every page duplicates the same `<nav>`, `<footer>`, and inline scroll script. There is no templating engine; edits to nav or footer must be applied to each file manually.
 
-**Active nav link** — the `.active` class on `<nav-links> a` is set statically per page (e.g. `<a href="sobre.html" class="active">`). It is not driven by JavaScript.
+**Active nav link** — the `.active` class on `.nav-links a` is set statically per page. It is not driven by JavaScript.
 
-**Single stylesheet** — `styles.css` contains all layout, component, and page-specific styles in one file. Page sections are separated by comments (e.g. `/* ---------- Libros ---------- */`). The only exception is `palabra.html`, which has a small inline `<style>` block to override the background and nav color for its sage-gradient theme.
+**Single stylesheet** — `styles/styles.css` contains all layout, component, and page-specific styles.
 
-**No images** — the author photo is a CSS placeholder (`.photo-placeholder`). Book covers are pure CSS gradients and filters (`.cover-1`, `.cover-2`). No `<img>` tags exist yet.
+**Brand direction** — beige/sand backgrounds, teal geometric triangle motifs, Great Vibes for the signature brandmark, Source Serif 4 for display/body, Outfit for UI labels. Content and visual language come from the author's creative portfolio.
 
-**Typography** — two Google Fonts loaded from CDN: `Cormorant Garamond` (serif, for headings, quotes, and display text) and `Karla` (sans-serif, for body and UI). CSS custom properties for the color palette are defined in `:root` at the top of `styles.css`.
-
-**Watercolor hero effect** — built entirely with CSS: multiple `.bloom` divs using `radial-gradient` + `filter: blur`, a `.grain` div using an inline SVG `feTurbulence` noise filter, and `mix-blend-mode: multiply`.
-
-## Known issues
-
-- `index.html:21` has a malformed closing tag: `Contacto<>/a>` — should be `Contacto</a>`.
+**Imagery** — author portraits and book cover live under `images/`.

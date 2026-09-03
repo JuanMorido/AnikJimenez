@@ -7,10 +7,10 @@ Sitio estático para la escritora colombiana Anik Jiménez Marulanda. Desplegado
 | Archivo | Ruta | Contenido |
 |---|---|---|
 | `index.html` | `/` | Inicio / portada |
-| `sobre.html` | `/sobre.html` | Sobre la autora |
-| `libros.html` | `/libros.html` | Libros publicados |
+| `sobre.html` | `/sobre.html` | Biografía, valores, misión y visión |
+| `libros.html` | `/libros.html` | Libros publicados y próximos |
 | `palabra.html` | `/palabra.html` | Cita destacada |
-| `contacto.html` | `/contacto.html` | Formulario de contacto |
+| `contacto.html` | `/contacto.html` | Datos de contacto y formulario |
 
 ## Desarrollo local
 
