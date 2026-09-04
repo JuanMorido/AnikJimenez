@@ -1,82 +1,85 @@
 <!doctype html>
 <html lang="es">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Una palabra de Anik — Anik Jiménez Marulanda</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Karla:wght@300;400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles/styles.css">
-<style>
-  /* This page uses the sage gradient as full-bleed body bg so the
-     header bar floats over the same color. */
-  body { background: linear-gradient(180deg, var(--sage) 0%, #b8d0b5 100%); }
-  nav.top { background: rgba(200, 220, 197, 0.65); }
-  footer { background: transparent; border-top-color: rgba(74,90,71,.2); }
-  .foot-row { color: #4a5a47; }
-  .foot-row .mark { color: #2f3e2c; }
-  .page-nav { border-top-color: rgba(74,90,71,.2); }
-  .page-nav a { color: #4a5a47; }
-  .page-nav .label { color: #2f3e2c; }
-</style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Una palabra — Anik Jiménez Marulanda</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Outfit:wght@400;500;600&family=Source+Serif+4:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles/styles.css" />
 </head>
 <body>
-
-<nav class="top" id="nav">
-  <div class="row">
-    <a class="brandmark" href="index.html">Anik <span>Jiménez Marulanda</span></a>
-    <div class="nav-links">
-      <a href="sobre.html">Sobre Anik</a>
-      <a href="libros.html">Mis libros</a>
-      <a href="palabra.html" class="active">Una palabra</a>
-      <a href="contacto.html">Contacto</a>
+  <nav class="nav" id="nav">
+    <div class="nav-inner">
+      <a class="logo" href="index.html">Anik Jiménez</a>
+      <div class="menu">
+        <a href="sobre.html">Sobre Anik</a>
+        <a href="libros.html">Mis libros</a>
+        <a href="palabra.html" aria-current="page">Una palabra</a>
+        <a href="contacto.html">Contacto</a>
+      </div>
     </div>
-  </div>
-</nav>
+  </nav>
 
-<main>
-  <section class="palabra-page" data-screen-label="04 Una palabra de Anik">
-    <span class="quote-mark" aria-hidden="true">“</span>
-    <div class="quote-block">
-      <blockquote>
-        Nadie está libre de pasar por una situación que le desordene la vida. Pero eso no es el final.
-      </blockquote>
-      <div class="attrib">Anik Jiménez Marulanda</div>
+  <main>
+    <section class="quote-panel" data-screen-label="09 Cita">
+      <div class="triangles" aria-hidden="true">
+        <svg viewBox="0 0 1200 700" preserveAspectRatio="xMidYMid slice">
+          <g opacity=".4">
+            <path d="M40 140 L180 40 L220 240 Z" fill="rgba(255,255,255,.28)" />
+            <path d="M980 520 L1140 380 L1200 680 Z" fill="rgba(61,107,117,.2)" />
+          </g>
+        </svg>
+      </div>
+      <div class="bigmark" aria-hidden="true">“</div>
+      <div>
+        <blockquote>Una historia puede comenzar en una página y continuar en la vida de quien la lee.</blockquote>
+        <cite>Anik Jiménez Marulanda</cite>
+      </div>
+    </section>
+
+    <section class="section section-sand" data-screen-label="10 Impacto">
+      <div class="wrap">
+        <div class="split">
+          <div class="split-media">
+            <div class="portrait">
+              <img src="images/foto-impacto.jpg" alt="Retrato de estudio de Anik" width="574" height="717" />
+            </div>
+          </div>
+          <div class="split-copy copy">
+            <div class="section-head">
+              <span class="section-num">i.</span>
+              <h2 class="section-title">Impacto</h2>
+            </div>
+            <p class="lead">Anik trasciende el acto de leer para convertirlo en una experiencia de conexión, inspiración, reflexión y transformación.</p>
+            <p>A través de sus historias y palabras, acompaña al lector en distintos momentos de su vida, dando forma a personajes, relatos y versos que abren puertas a nuevas emociones y perspectivas, invitan a mirar hacia adentro y dejan una huella que perdura más allá de la última página.</p>
+            <p>Su impacto nace de una literatura cercana y humana, capaz de transitar por distintos géneros y universos narrativos sin perder su esencia. Cada obra busca construir un vínculo auténtico con el lector, despertando emociones, propiciando preguntas y ofreciendo nuevas maneras de mirar el mundo.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="page-nav">
+      <div class="page-nav-inner">
+        <a href="libros.html"><span>← Anterior</span><strong>Mis libros</strong></a>
+        <a class="next" href="contacto.html"><span>Siguiente →</span><strong>Contacto</strong></a>
+      </div>
     </div>
-  </section>
+  </main>
 
-  <div class="page-nav">
-    <div class="page-nav-row">
-      <a href="libros.html">
-        <span class="step">← Anterior</span>
-        <span class="label">Mis libros</span>
-      </a>
-      <a href="contacto.html" class="next">
-        <span class="step">Siguiente →</span>
-        <span class="label">Contacto</span>
-      </a>
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="mark">Anik Jiménez</div>
+      <div>© 2026 · Bogotá, Colombia</div>
     </div>
-  </div>
-</main>
+  </footer>
 
-<footer>
-  <div class="wrap">
-    <div class="foot-row">
-      <div class="mark">Anik Jiménez Marulanda</div>
-      <div>© 2026 · Hecho con calma desde Colombia</div>
-    </div>
-  </div>
-</footer>
-
-<script>
-  const nav = document.getElementById('nav');
-  const onScroll = () => {
-    if (window.scrollY > 16) nav.classList.add('scrolled');
-    else nav.classList.remove('scrolled');
-  };
-  window.addEventListener('scroll', onScroll, { passive: true });
-  onScroll();
-</script>
+  <script>
+    const nav = document.getElementById('nav');
+    const onScroll = () => nav.classList.toggle('is-scrolled', window.scrollY > 12);
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+  </script>
 </body>
 </html>
