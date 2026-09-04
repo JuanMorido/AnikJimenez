@@ -1,38 +1,30 @@
 # CLAUDE.md
 
-This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
+Guidance for working in this repository.
 
-## Project overview
+## Overview
 
-Static personal website for **Anik Jiménez Marulanda**, a Colombian writer. Five pages in Spanish, no build tools, no dependencies, no backend — open any `.html` file directly in a browser or serve with a local static server.
+Static personal website for **Anik Jiménez Marulanda**, aligned to her brand manual.
 
 ```
-index.html      # Home / hero
-sobre.html      # Biography, values, mission, vision
-libros.html     # Books
-palabra.html    # Featured quote page
-contacto.html   # Contact details + mailto form
-styles.css      # All styles for all pages
-images/         # Author photos and book cover
+index.html      # Portada
+sobre.html      # Biografía, valores, misión, visión, propuesta, proyección
+libros.html     # Obra
+palabra.html    # Cita e impacto
+contacto.html   # Contacto
+styles/styles.css
+images/         # Logo oficial + fotos placeholder
 ```
 
-## Development
+## Brand tokens
 
-No build step. To preview locally:
+- Logo: `images/logo-anik.png` (firma)
+- Colors: beige `#FFF4E6`, azul oscuro `#0E2A4E`, azul mar `#006995`, celeste `#38A7DE`, baby blue `#B7CDE6`, turquesa `#0FCDB6`, marrones de marca
+- Body/titles: Cormorant Garamond (web stand-in for Monterchi Serif)
+- Script accents: Allura (web stand-in for La Luxes Script) + official logo image
+
+## Local preview
 
 ```bash
 python3 -m http.server 8080
-# then open http://localhost:8080
 ```
-
-## Architecture
-
-**Shared structure** — every page duplicates the same `<nav>`, `<footer>`, and inline scroll script. There is no templating engine; edits to nav or footer must be applied to each file manually.
-
-**Active nav link** — the `.active` class on `.nav-links a` is set statically per page. It is not driven by JavaScript.
-
-**Single stylesheet** — `styles/styles.css` contains all layout, component, and page-specific styles.
-
-**Brand direction** — beige/sand backgrounds, teal geometric triangle motifs, Great Vibes for the signature brandmark, Source Serif 4 for display/body, Outfit for UI labels. Content and visual language come from the author's creative portfolio.
-
-**Imagery** — author portraits and book cover live under `images/`.

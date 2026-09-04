@@ -1,18 +1,25 @@
 # Anik Jiménez Marulanda — Sitio web
 
-Sitio estático personal de la escritora colombiana Anik Jiménez Marulanda. El diseño y el contenido siguen su portafolio creativo (beige/teal, firma tipográfica y motivos triangulares).
+Sitio estático personal alineado al **Manual de Marca Anik Jiménez**.
+
+## Identidad
+
+| Elemento | Uso en el sitio |
+|---|---|
+| Logo (firma) | `images/logo-anik.png` en nav, hero y footer |
+| Tipografía principal | Cormorant Garamond (equivalente web a Monterchi Serif) |
+| Tipografía especial | Allura (equivalente web a La Luxes Script) + logo oficial |
+| Paleta | Beige `#FFF4E6`, Azul oscuro `#0E2A4E`, Azul mar `#006995`, Celeste `#38A7DE`, Baby blue `#B7CDE6`, Turquesa `#0FCDB6`, marrones de marca |
 
 ## Páginas
 
 | Archivo | Contenido |
 |---|---|
-| `index.html` | Portada / marca |
+| `index.html` | Portada |
 | `sobre.html` | Biografía, valores, misión, visión, propuesta, proyección |
-| `libros.html` | Obra publicada y próxima |
+| `libros.html` | Obra |
 | `palabra.html` | Cita e impacto |
-| `contacto.html` | Datos de contacto y formulario |
-
-Las fotos en `images/` son **placeholders** recortados del portafolio y del PDF de información; se pueden reemplazar luego por los archivos originales.
+| `contacto.html` | Contacto |
 
 ## Vista local
 
@@ -20,8 +27,6 @@ Las fotos en `images/` son **placeholders** recortados del portafolio y del PDF 
 python3 -m http.server 8080
 ```
 
-Abre `http://localhost:8080`.
-
 ## Despliegue
 
-GitHub Pages desde `main` (raíz del repo). Sin build.
+GitHub Pages desde `main`.
