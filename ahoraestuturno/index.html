@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Ahora es tu turno — Anik Jiménez Marulanda</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Allura&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../styles/styles.css" />
+</head>
+<body>
+  <nav class="nav" id="nav">
+    <div class="nav-inner">
+      <a class="logo" href="../index.html"><img src="../images/logo-anik.png" alt="Anik Jiménez" width="200" height="72" /></a>
+      <div class="menu">
+        <a href="../sobre.html">Sobre Anik</a>
+        <a href="../libros.html">Mis libros</a>
+        <a href="../palabra.html">Una palabra</a>
+        <a href="../contacto.html">Contacto</a>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <section class="section section-sand" data-screen-label="Ahora es tu turno">
+      <div class="wrap">
+        <div class="section-head">
+          <h2 class="section-title">Ahora es tu turno</h2>
+        </div>
+
+        <div class="contact-grid">
+          <div class="copy">
+            <p class="lead">Diligencia tus datos a continuación para que puedas hacer parte de esta comunidad y recibir acompañamiento en las actividades de <em>Ahora es tu turno</em>.</p>
+            <p class="sign">— Anik</p>
+          </div>
+
+          <form class="contact-form" id="turno-form">
+            <div class="field">
+              <label for="nombre">Nombre completo</label>
+              <input id="nombre" name="nombre" type="text" autocomplete="name" required />
+            </div>
+            <div class="field">
+              <label for="correo">Correo</label>
+              <input id="correo" name="correo" type="email" autocomplete="email" placeholder="nombre@correo.com" required />
+            </div>
+            <div class="field">
+              <label for="whatsapp">Teléfono / WhatsApp</label>
+              <input id="whatsapp" name="whatsapp" type="tel" autocomplete="tel" placeholder="+57 300 000 0000" />
+            </div>
+            <div class="field">
+              <label for="ciudad">Ciudad y país</label>
+              <input id="ciudad" name="ciudad" type="text" autocomplete="address-level2" />
+            </div>
+            <div class="field">
+              <label for="libro">¿Qué libro leíste?</label>
+              <select id="libro" name="libro">
+                <option value="Cuando la enfermedad se cruzó en el camino">Cuando la enfermedad se cruzó en el camino</option>
+                <option value="Las cicatrices que aprendí a amar">Las cicatrices que aprendí a amar</option>
+                <option value="Otro">Otro</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="mensaje">Mensaje o comentario</label>
+              <textarea id="mensaje" name="mensaje" placeholder="Cuéntame lo que quieras compartir…"></textarea>
+            </div>
+            <button class="btn" type="submit">Quiero hacer parte <span>→</span></button>
+            <p class="form-note" id="turno-note" hidden>Gracias. Muy pronto este formulario quedará activo.</p>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="mark"><img src="../images/logo-anik.png" alt="Anik Jiménez" width="160" height="58" /></div>
+      <div>© 2026 · Bogotá, Colombia</div>
+    </div>
+  </footer>
+
+  <script>
+    const nav = document.getElementById('nav');
+    const onScroll = () => nav.classList.toggle('is-scrolled', window.scrollY > 12);
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+
+    document.getElementById('turno-form').addEventListener('submit', (e) => {
+      e.preventDefault();
+      document.getElementById('turno-note').hidden = false;
+    });
+  </script>
+</body>
+</html>
