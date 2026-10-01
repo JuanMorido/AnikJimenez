@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Anik Jiménez Marulanda — Escritora</title>
+  <meta name="description" content="Escritora colombiana. Historias de fe, resiliencia y esperanza desde Bogotá." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Allura&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles/styles.css" />
+</head>
+<body>
+  <nav class="nav" id="nav">
+    <div class="nav-inner">
+      <a class="logo" href="inicio.html"><img src="images/logo-anik.png" alt="Anik Jiménez" width="200" height="72" /></a>
+      <div class="menu">
+        <a href="sobre.html">Sobre Anik</a>
+        <a href="libros.html">Mis libros</a>
+        <a href="palabra.html">Una palabra</a>
+        <a href="contacto.html">Contacto</a>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <header class="hero" data-screen-label="01 Portada">
+      <div class="hero-content">
+        <div class="hero-kicker">Escritora · Bogotá</div>
+        <h1 class="hero-logo">
+          <img src="images/logo-anik.png" alt="Anik Jiménez" width="520" height="188" />
+        </h1>
+        <p class="hero-tag">Historias que acompañan el caminar: fe, resiliencia y sentido ante la existencia.</p>
+        <div class="hero-actions">
+          <a class="btn" href="sobre.html">Sobre mí <span>→</span></a>
+          <a class="btn btn-ghost" href="libros.html">Conoce mis libros</a>
+        </div>
+      </div>
+    </header>
+
+    <section class="section section-paper home-books" data-screen-label="01b Libros">
+      <div class="wrap">
+        <div class="section-head">
+          <h2 class="section-title">Mis libros</h2>
+        </div>
+        <div class="home-books-row">
+          <a class="home-book" href="libros.html#cuando">
+            <div class="book-cover">
+              <img src="images/portada-cuando-enfermedad.jpg" alt="Portada de Cuando la enfermedad se cruzó en el camino" width="589" height="950" />
+            </div>
+            <span class="home-book-title">Cuando la enfermedad se cruzó en el camino</span>
+            <span class="home-book-year">2020</span>
+          </a>
+          <a class="home-book" href="libros.html#cicatrices">
+            <div class="book-cover soon">Pronto, otra<br />historia que contar</div>
+            <span class="home-book-title">Las cicatrices que aprendí a amar</span>
+            <span class="home-book-year">Próximamente · 2026</span>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="mark"><img src="images/logo-anik.png" alt="Anik Jiménez" width="160" height="58" /></div>
+      <div class="credits">Fotografías: [crédito por confirmar]</div>
+      <div>© 2026 · Bogotá, Colombia</div>
+    </div>
+  </footer>
+
+  <script>
+    const nav = document.getElementById('nav');
+    const onScroll = () => nav.classList.toggle('is-scrolled', window.scrollY > 12);
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+  </script>
+</body>
+</html>

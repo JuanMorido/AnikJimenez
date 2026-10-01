@@ -3,77 +3,131 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Anik Jiménez Marulanda — Escritora</title>
-  <meta name="description" content="Escritora colombiana. Historias de fe, resiliencia y esperanza desde Bogotá." />
+  <title>Anik Jiménez Marulanda — Sitio en construcción</title>
+  <meta name="description" content="Escritora colombiana. Muy pronto: historias de fe, resiliencia y esperanza desde Bogotá." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Allura&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles/styles.css" />
+  <style>
+    .soon-page {
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      padding: 48px 24px;
+      text-align: center;
+      background:
+        radial-gradient(circle at 16% 28%, rgba(183,205,230,.45), transparent 42%),
+        radial-gradient(circle at 84% 72%, rgba(15,205,182,.18), transparent 44%),
+        linear-gradient(115deg, #fff4e6 0%, #f7efe4 42%, #d9e8f5 100%);
+    }
+    .soon-inner { max-width: 560px; animation: rise .85s ease both; }
+    .soon-logo { width: min(300px, 70vw); margin: 0 auto 8px; }
+    .soon-art { width: min(340px, 86vw); margin: 8px auto 4px; overflow: visible; }
+    .soon-title {
+      margin: 6px 0 12px;
+      font-style: italic;
+      font-weight: 600;
+      font-size: clamp(34px, 5vw, 48px);
+      line-height: 1.1;
+      color: var(--azul-oscuro);
+    }
+    .soon-text {
+      margin: 0 auto 28px;
+      max-width: 36ch;
+      font-style: italic;
+      font-size: clamp(19px, 2.2vw, 22px);
+      line-height: 1.5;
+      color: var(--marron-gris);
+    }
+    .soon-contact {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 8px 22px;
+      font-size: 15px;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: var(--azul-mar);
+    }
+    .soon-contact a { border-bottom: 1px solid transparent; transition: border-color .2s ease; }
+    .soon-contact a:hover { border-bottom-color: var(--celeste); }
+
+    .plant { transform-origin: 160px 108px; animation: grow 1.6s .3s cubic-bezier(.2,.8,.2,1) both; }
+    .sparkle { transform-box: fill-box; transform-origin: center; animation: twinkle 2.6s ease-in-out infinite; }
+    .sparkle:nth-of-type(2) { animation-delay: .7s; }
+    .sparkle:nth-of-type(3) { animation-delay: 1.4s; }
+    .sparkle:nth-of-type(4) { animation-delay: 2s; }
+    .pencil { animation: write 3s ease-in-out infinite; }
+    @keyframes grow { from { transform: scale(0); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+    @keyframes twinkle { 0%, 100% { transform: scale(.6); opacity: .35; } 50% { transform: scale(1.1); opacity: 1; } }
+    @keyframes write { 0%, 100% { transform: translate(0, 0); } 50% { transform: translate(-10px, 4px); } }
+    @media (prefers-reduced-motion: reduce) {
+      .plant, .sparkle, .pencil, .soon-inner { animation: none; }
+    }
+  </style>
 </head>
 <body>
-  <nav class="nav" id="nav">
-    <div class="nav-inner">
-      <a class="logo" href="index.html"><img src="images/logo-anik.png" alt="Anik Jiménez" width="200" height="72" /></a>
-      <div class="menu">
-        <a href="sobre.html">Sobre Anik</a>
-        <a href="libros.html">Mis libros</a>
-        <a href="palabra.html">Una palabra</a>
-        <a href="contacto.html">Contacto</a>
+  <main class="soon-page">
+    <div class="soon-inner">
+      <div class="hero-kicker">Escritora · Bogotá</div>
+      <img class="soon-logo" src="images/logo-anik.png" alt="Anik Jiménez" width="300" height="108" />
+
+      <svg class="soon-art" viewBox="0 0 320 240" role="img" aria-label="Un libro abierto del que brota una planta">
+        <ellipse cx="160" cy="214" rx="118" ry="9" fill="#0e2a4e" opacity=".08" />
+
+        <path d="M42 114 L42 204 C88 193 128 193 160 206 C192 193 232 193 278 204 L278 114 Z" fill="#006995" />
+        <path d="M160 198 C130 186 90 186 50 196 L50 106 C90 96 130 96 160 108 Z" fill="#fefefe" stroke="#0e2a4e" stroke-width="2" stroke-linejoin="round" />
+        <path d="M160 198 C190 186 230 186 270 196 L270 106 C230 96 190 96 160 108 Z" fill="#fefefe" stroke="#0e2a4e" stroke-width="2" stroke-linejoin="round" />
+        <path d="M160 108 L160 198" stroke="#0e2a4e" stroke-width="1.5" opacity=".5" />
+
+        <g stroke="#b7cde6" stroke-width="2.5" stroke-linecap="round" fill="none">
+          <path d="M66 124 C92 118 118 118 144 126" />
+          <path d="M66 138 C92 132 118 132 144 140" />
+          <path d="M66 152 C92 146 118 146 144 154" />
+          <path d="M66 166 C88 161 104 161 120 165" />
+          <path d="M176 126 C202 118 228 118 254 124" />
+          <path d="M176 140 C196 134 212 133 226 135" />
+        </g>
+
+        <g class="plant">
+          <path d="M160 108 C157 86 164 68 160 44" stroke="#0e2a4e" stroke-width="2.5" stroke-linecap="round" fill="none" />
+          <path d="M159 90 C140 88 126 74 129 62 C146 63 157 75 159 90 Z" fill="#0fcdb6" stroke="#0e2a4e" stroke-width="1.5" />
+          <path d="M161 72 C179 69 192 55 188 44 C172 46 162 58 161 72 Z" fill="#38a7de" stroke="#0e2a4e" stroke-width="1.5" />
+          <g transform="translate(160 38)">
+            <circle r="5.5" cx="0" cy="-7" fill="#b68a66" />
+            <circle r="5.5" cx="6.7" cy="-2.2" fill="#b68a66" />
+            <circle r="5.5" cx="4.1" cy="5.7" fill="#b68a66" />
+            <circle r="5.5" cx="-4.1" cy="5.7" fill="#b68a66" />
+            <circle r="5.5" cx="-6.7" cy="-2.2" fill="#b68a66" />
+            <circle r="4" fill="#fff4e6" stroke="#705c4c" stroke-width="1.5" />
+          </g>
+        </g>
+
+        <g class="pencil">
+          <g transform="rotate(-28 236 160)">
+            <rect x="206" y="154" width="58" height="12" rx="1.5" fill="#b68a66" stroke="#0e2a4e" stroke-width="1.5" />
+            <rect x="264" y="154" width="9" height="12" rx="2" fill="#b7cde6" stroke="#0e2a4e" stroke-width="1.5" />
+            <path d="M206 154 L192 160 L206 166 Z" fill="#fff4e6" stroke="#0e2a4e" stroke-width="1.5" stroke-linejoin="round" />
+            <path d="M196.5 158 L192 160 L196.5 162 Z" fill="#0e2a4e" />
+          </g>
+        </g>
+
+        <g fill="#38a7de">
+          <path class="sparkle" d="M84 54 L87 64 L97 67 L87 70 L84 80 L81 70 L71 67 L81 64 Z" />
+          <path class="sparkle" d="M236 40 L238.5 48 L246 50.5 L238.5 53 L236 61 L233.5 53 L226 50.5 L233.5 48 Z" fill="#0fcdb6" />
+          <path class="sparkle" d="M112 26 L113.8 31 L119 33 L113.8 35 L112 40 L110.2 35 L105 33 L110.2 31 Z" fill="#b68a66" />
+          <path class="sparkle" d="M268 82 L270 88 L276 90 L270 92 L268 98 L266 92 L260 90 L266 88 Z" />
+        </g>
+      </svg>
+
+      <h1 class="soon-title">Sitio en construcción</h1>
+      <p class="soon-text">Estoy escribiendo un nuevo capítulo. Muy pronto encontrarás aquí mis libros, mis palabras y todo lo que tengo para compartir.</p>
+      <div class="soon-contact">
+        <a href="mailto:anikjimenez@gmail.com">anikjimenez@gmail.com</a>
+        <a href="https://instagram.com/anikjimenez" target="_blank" rel="noopener noreferrer">@anikjimenez</a>
       </div>
     </div>
-  </nav>
-
-  <main>
-    <header class="hero" data-screen-label="01 Portada">
-      <div class="hero-content">
-        <div class="hero-kicker">Escritora · Bogotá</div>
-        <h1 class="hero-logo">
-          <img src="images/logo-anik.png" alt="Anik Jiménez" width="520" height="188" />
-        </h1>
-        <p class="hero-tag">Historias que acompañan el caminar: fe, resiliencia y sentido ante la existencia.</p>
-        <div class="hero-actions">
-          <a class="btn" href="sobre.html">Sobre mí <span>→</span></a>
-          <a class="btn btn-ghost" href="libros.html">Conoce mis libros</a>
-        </div>
-      </div>
-    </header>
-
-    <section class="section section-paper home-books" data-screen-label="01b Libros">
-      <div class="wrap">
-        <div class="section-head">
-          <h2 class="section-title">Mis libros</h2>
-        </div>
-        <div class="home-books-row">
-          <a class="home-book" href="libros.html#cuando">
-            <div class="book-cover">
-              <img src="images/portada-cuando-enfermedad.jpg" alt="Portada de Cuando la enfermedad se cruzó en el camino" width="589" height="950" />
-            </div>
-            <span class="home-book-title">Cuando la enfermedad se cruzó en el camino</span>
-            <span class="home-book-year">2020</span>
-          </a>
-          <a class="home-book" href="libros.html#cicatrices">
-            <div class="book-cover soon">Pronto, otra<br />historia que contar</div>
-            <span class="home-book-title">Las cicatrices que aprendí a amar</span>
-            <span class="home-book-year">Próximamente · 2026</span>
-          </a>
-        </div>
-      </div>
-    </section>
   </main>
-
-  <footer class="footer">
-    <div class="footer-inner">
-      <div class="mark"><img src="images/logo-anik.png" alt="Anik Jiménez" width="160" height="58" /></div>
-      <div class="credits">Fotografías: [crédito por confirmar]</div>
-      <div>© 2026 · Bogotá, Colombia</div>
-    </div>
-  </footer>
-
-  <script>
-    const nav = document.getElementById('nav');
-    const onScroll = () => nav.classList.toggle('is-scrolled', window.scrollY > 12);
-    window.addEventListener('scroll', onScroll, { passive: true });
-    onScroll();
-  </script>
 </body>
 </html>
