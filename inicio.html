@@ -24,11 +24,12 @@
   </nav>
 
   <main>
-    <header class="hero" data-screen-label="01 Portada">
+    <header class="hero hero-photo" data-screen-label="01 Portada">
+      <img class="hero-bg" src="images/hero-inicio.jpg" alt="" width="1650" height="2200" decoding="async" fetchpriority="high" />
+      <div class="hero-scrim" aria-hidden="true"></div>
       <div class="hero-content">
-        <div class="hero-kicker">Escritora · Bogotá</div>
         <h1 class="hero-logo">
-          <img src="images/logo-anik.png" alt="Anik Jiménez" width="520" height="188" />
+          <img src="images/logo-anik-on-dark.png" alt="Anik Jiménez" width="520" height="188" />
         </h1>
         <p class="hero-tag">Historias que acompañan el caminar: fe, resiliencia y sentido ante la existencia.</p>
         <div class="hero-actions">
@@ -64,10 +65,15 @@
   <footer class="footer">
     <div class="footer-inner">
       <div class="mark"><img src="images/logo-anik.png" alt="Anik Jiménez" width="160" height="58" /></div>
-      <div class="credits">Fotografías: [crédito por confirmar]</div>
       <div>© 2026 · Bogotá, Colombia</div>
     </div>
-  </footer>
+    <div class="footer-copy-bar">
+      <span>© 2026 EASI Soluciones · Bogotá, Colombia</span>
+      <span>Todos los derechos reservados</span>
+      <span>Versión 1</span>
+      <span>Política de privacidad</span>
+    </div>
+</footer>
 
   <script>
     const nav = document.getElementById('nav');
