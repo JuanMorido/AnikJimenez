@@ -167,8 +167,9 @@ em { font-style: italic; }
   position: absolute;
   inset: 0;
   z-index: 1;
+  /* Solo oscurece el centro (foto); los bordes quedan del beige de la página */
   background:
-    linear-gradient(180deg, rgba(8,16,28,.28) 0%, rgba(8,16,28,.05) 34%, rgba(8,16,28,.34) 100%);
+    radial-gradient(ellipse 42% 78% at 50% 50%, rgba(8,16,28,.32) 0%, rgba(8,16,28,.12) 55%, transparent 72%);
   pointer-events: none;
 }
 .hero-content {
