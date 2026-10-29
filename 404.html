@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Página no encontrada — Anik Jiménez Marulanda</title>
+  <meta name="description" content="Esta página no existe. Vuelve al inicio de Anik Jiménez Marulanda." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Allura&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/styles/styles.css" />
+</head>
+<body>
+  <nav class="nav" id="nav">
+    <div class="nav-inner">
+      <a class="logo" href="/inicio.html"><img src="/images/logo-anik.png" alt="Anik Jiménez" width="200" height="72" /></a>
+      <div class="menu">
+        <a href="/sobre.html">Sobre Anik</a>
+        <a href="/libros.html">Mis libros</a>
+        <a href="/contacto.html">Contacto</a>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <section class="section section-sand section-fill" data-screen-label="404">
+      <div class="wrap error-page">
+        <p class="error-code">404</p>
+        <h1 class="section-title">Esta página se quedó entre capítulos</h1>
+        <p class="error-text">No encontramos lo que buscas. Puedes volver al inicio o escribirme si necesitas ayuda.</p>
+        <div class="hero-actions">
+          <a class="btn" href="/inicio.html">Volver al inicio <span>→</span></a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="mark"><img src="/images/logo-anik.png" alt="Anik Jiménez" width="160" height="58" /></div>
+      <div><a href="mailto:escritora@anikjimenez.com">escritora@anikjimenez.com</a></div>
+    </div>
+    <div class="footer-copy-bar">
+      <span>© 2026 EASI Soluciones · Bogotá, Colombia</span>
+      <span>Todos los derechos reservados</span>
+      <span>Versión 1</span>
+      <span>Política de privacidad</span>
+    </div>
+  </footer>
+
+  <script>
+    const nav = document.getElementById('nav');
+    const onScroll = () => nav.classList.toggle('is-scrolled', window.scrollY > 12);
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+  </script>
+</body>
+</html>
