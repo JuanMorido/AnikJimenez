@@ -188,8 +188,12 @@ em { font-style: italic; }
 }
 .hero-photo {
   min-height: calc(100vh - 64px);
-  background: var(--blanco);
-  color: var(--blanco);
+  display: grid;
+  grid-template-columns: auto minmax(280px, 1fr);
+  place-items: stretch;
+  align-items: stretch;
+  background: var(--beige);
+  color: var(--azul-oscuro);
 }
 .hero-bg {
   position: absolute;
@@ -199,6 +203,16 @@ em { font-style: italic; }
   object-fit: contain;
   object-position: center center;
   z-index: 0;
+}
+.hero-photo .hero-bg {
+  position: relative;
+  inset: auto;
+  z-index: auto;
+  width: auto;
+  height: calc(100vh - 64px);
+  max-width: min(56vw, 760px);
+  object-fit: contain;
+  object-position: center center;
 }
 .hero-scrim {
   position: absolute;
@@ -217,7 +231,15 @@ em { font-style: italic; }
   animation: rise .85s ease both;
 }
 .hero-photo .hero-content {
-  padding: 72px 28px 88px;
+  z-index: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 48px 64px 56px 40px;
+  background:
+    radial-gradient(circle at 78% 22%, rgba(183,205,230,.4), transparent 46%),
+    var(--beige);
 }
 .hero-kicker {
   font-family: "Cormorant Garamond", serif;
@@ -260,8 +282,8 @@ em { font-style: italic; }
   line-height: 1.45;
 }
 .hero-photo .hero-tag {
-  color: rgba(255, 244, 230, .92);
-  text-shadow: 0 1px 18px rgba(0,0,0,.35);
+  color: var(--marron-gris);
+  text-shadow: none;
 }
 .hero-actions {
   display: flex;
@@ -270,12 +292,28 @@ em { font-style: italic; }
   flex-wrap: wrap;
 }
 .hero-photo .btn-ghost {
-  color: var(--beige);
-  border-bottom-color: rgba(255, 244, 230, .75);
+  color: var(--azul-oscuro);
+  border-bottom-color: var(--azul-oscuro);
 }
 .hero-photo .btn-ghost:hover {
-  color: var(--blanco);
-  border-bottom-color: var(--blanco);
+  color: var(--azul-mar);
+  border-bottom-color: var(--azul-mar);
+}
+@media (max-width: 860px) {
+  .hero-photo {
+    grid-template-columns: 1fr;
+    min-height: 0;
+  }
+  .hero-photo .hero-bg {
+    width: 100%;
+    height: auto;
+    max-width: none;
+    max-height: 72vh;
+    object-fit: contain;
+  }
+  .hero-photo .hero-content {
+    padding: 36px 22px 48px;
+  }
 }
 
 /* Page sections */
