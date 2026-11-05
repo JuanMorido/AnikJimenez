@@ -260,6 +260,7 @@ em { font-style: italic; }
   width: 100%;
   height: auto;
 }
+.hero-logo .logo-for-photo { display: none; }
 .hero-name {
   margin: 0;
   font-family: "Allura", cursive;
@@ -313,6 +314,50 @@ em { font-style: italic; }
   }
   .hero-photo .hero-content {
     padding: 36px 22px 48px;
+  }
+}
+@media (max-width: 600px) {
+  .hero-photo {
+    display: grid;
+    grid-template-columns: 1fr;
+    min-height: calc(100vh - 64px);
+    place-items: center;
+    background: #0a0a0a;
+    color: var(--blanco);
+  }
+  .hero-photo .hero-bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    width: 100%;
+    height: 100%;
+    max-width: none;
+    max-height: none;
+    object-fit: cover;
+    object-position: center center;
+  }
+  .hero-photo .hero-content {
+    position: relative;
+    z-index: 2;
+    min-height: calc(100vh - 64px);
+    width: 100%;
+    padding: 48px 18px 64px;
+    background:
+      radial-gradient(ellipse 78% 62% at 50% 46%, rgba(8,16,28,.42) 0%, rgba(8,16,28,.16) 58%, transparent 76%);
+  }
+  .hero-logo .logo-for-panel { display: none; }
+  .hero-logo .logo-for-photo { display: block; }
+  .hero-photo .hero-tag {
+    color: rgba(255, 244, 230, .92);
+    text-shadow: 0 1px 18px rgba(0,0,0,.35);
+  }
+  .hero-photo .btn-ghost {
+    color: var(--beige);
+    border-bottom-color: rgba(255, 244, 230, .75);
+  }
+  .hero-photo .btn-ghost:hover {
+    color: var(--blanco);
+    border-bottom-color: var(--blanco);
   }
 }
 
