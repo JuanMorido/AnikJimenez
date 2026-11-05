@@ -192,7 +192,7 @@ em { font-style: italic; }
   grid-template-columns: auto minmax(280px, 1fr);
   place-items: stretch;
   align-items: stretch;
-  background: var(--beige);
+  background: var(--blanco);
   color: var(--azul-oscuro);
 }
 .hero-bg {
@@ -211,6 +211,8 @@ em { font-style: italic; }
   width: auto;
   height: calc(100vh - 64px);
   max-width: min(56vw, 760px);
+  margin-left: 40px;
+  margin-right: 32px;
   object-fit: contain;
   object-position: center center;
 }
@@ -238,8 +240,9 @@ em { font-style: italic; }
   align-items: center;
   padding: 48px 64px 56px 40px;
   background:
-    radial-gradient(circle at 78% 22%, rgba(183,205,230,.4), transparent 46%),
-    var(--beige);
+    radial-gradient(ellipse 95% 85% at 72% 16%, rgba(56, 167, 222, .62), transparent 58%),
+    radial-gradient(ellipse 80% 70% at 8% 92%, rgba(0, 105, 149, .34), transparent 56%),
+    var(--blanco);
 }
 .hero-kicker {
   font-family: "Cormorant Garamond", serif;
@@ -306,10 +309,12 @@ em { font-style: italic; }
     min-height: 0;
   }
   .hero-photo .hero-bg {
-    width: 100%;
+    width: calc(100% - 48px);
     height: auto;
     max-width: none;
     max-height: 72vh;
+    margin-left: 24px;
+    margin-right: 24px;
     object-fit: contain;
   }
   .hero-photo .hero-content {
@@ -333,6 +338,7 @@ em { font-style: italic; }
     height: 100%;
     max-width: none;
     max-height: none;
+    margin: 0;
     object-fit: cover;
     object-position: center center;
   }
