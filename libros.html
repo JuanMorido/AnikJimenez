@@ -7,7 +7,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Allura&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles/styles.css?v=20261110x" />
+  <link rel="stylesheet" href="styles/styles.css?v=20261110z" />
 </head>
 <body>
   <nav class="nav" id="nav">
@@ -63,6 +63,10 @@
               <p>A los diecisiete años, Ana cree haber encontrado un rumbo claro: una fe recién descubierta y un futuro que apenas empieza a abrirse. Un diagnóstico inesperado de cáncer detiene su vida de golpe. Mientras su cuerpo se debilita entre quimioterapias y pasillos fríos, sostiene una certeza que parece imposible: Dios le dijo que ya está sana.</p>
               <p>En esa tensión, entre la fe que la sostiene y la realidad que la limita, se juega su vida. Y en cada sala de espera descubre que no es la única luchando: la fe no siempre evita el sufrimiento, pero puede transformar la forma de atravesarlo.</p>
               <p>Es una novela íntima y luminosa sobre el miedo, la esperanza y la persistencia espiritual en los momentos más oscuros. Una historia que recuerda que incluso en los pasillos más grises, siempre hay alguien dispuesto a caminar contigo.</p>
+              <div class="book-download">
+                <a class="btn" data-pdf="documentos/primer-capitulo-cuando-la-enfermedad-se-cruzo-en-el-camino.pdf" download aria-disabled="true">Descargar primer capítulo</a>
+                <p class="book-download-note">Para habilitar la descarga, deja tus datos en <a href="contacto.html">Contacto</a>.</p>
+              </div>
             </details>
           </article>
 
@@ -81,6 +85,10 @@
               <p>Anik enfrentó un linfoma de Hodgkin con nueve meses de quimioterapia y radiación a los diecisiete años. Veinticinco años después, el cáncer volvió a tocar a su puerta: seno y piel, una doble mastectomía, una histerectomía, más cirugías, más noches sin dormir.</p>
               <p>Con la palabra de Dios como ancla, con la sinceridad de quien no esconde sus lágrimas ni su enojo y con una invitación constante a la propia escritura, Anik traza el mapa de un camino íntimo y universal: el de las heridas que se vuelven cicatrices y las cicatrices que se vuelven señales de amor propio.</p>
               <p>Este libro no es un tratado sobre la enfermedad. Es la mano extendida de quien ya pasó por ahí, una y otra vez, y quiere acompañar a quien lo está viviendo ahora.</p>
+              <div class="book-download">
+                <a class="btn" data-pdf="documentos/primer-capitulo-las-cicatrices-que-aprendi-a-amar.pdf" download aria-disabled="true">Descargar primer capítulo</a>
+                <p class="book-download-note">Para habilitar la descarga, deja tus datos en <a href="contacto.html">Contacto</a>.</p>
+              </div>
             </details>
           </article>
         </div>
@@ -113,6 +121,23 @@
     };
     window.addEventListener('hashchange', openBook);
     openBook();
+
+    // "Descargar primer capítulo" queda inhabilitado hasta que el visitante envía sus datos en
+    // Contacto o en Ahora es tu turno, que dejan la marca anik-datos-registrados en este navegador.
+    const habilitarDescargas = () => {
+      let registrado = false;
+      try { registrado = localStorage.getItem('anik-datos-registrados') === '1'; } catch (e) {}
+      if (!registrado) return;
+      document.querySelectorAll('.book-download').forEach((bloque) => {
+        const boton = bloque.querySelector('[data-pdf]');
+        boton.href = boton.dataset.pdf;
+        boton.removeAttribute('aria-disabled');
+        bloque.querySelector('.book-download-note').hidden = true;
+      });
+    };
+    window.addEventListener('pageshow', habilitarDescargas);
+    window.addEventListener('storage', habilitarDescargas);
+    habilitarDescargas();
   </script>
 </body>
 </html>

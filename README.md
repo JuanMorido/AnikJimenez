@@ -21,6 +21,11 @@ Sitio estático personal alineado al **Manual de Marca Anik Jiménez**.
 | `palabra.html` | Cita e impacto |
 | `contacto.html` | Contacto |
 
+## Formularios
+
+Contacto y "Ahora es tu turno" envían sus datos al correo con [Web3Forms](https://web3forms.com).
+La clave de acceso va en `scripts/formularios.js` (`WEB3FORMS_CLAVE`).
+
 ## Datos
 
 `ahoraestuturno/ciudades.json` alimenta el buscador de "Ciudad y país". Se genera con

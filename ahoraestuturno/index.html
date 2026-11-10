@@ -7,7 +7,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Allura&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="../styles/styles.css?v=20261110x" />
+  <link rel="stylesheet" href="../styles/styles.css?v=20261110z" />
 </head>
 <body>
   <nav class="nav" id="nav">
@@ -38,26 +38,27 @@
           </div>
 
           <form class="contact-form" id="turno-form">
+            <input type="checkbox" name="botcheck" tabindex="-1" autocomplete="off" hidden />
             <div class="field">
               <label for="nombre">Nombre completo</label>
-              <input id="nombre" name="nombre" type="text" autocomplete="name" required />
+              <input id="nombre" name="Nombre" type="text" autocomplete="name" placeholder="Tu nombre" required />
             </div>
             <div class="field">
               <label for="correo">Correo</label>
-              <input id="correo" name="correo" type="email" autocomplete="email" placeholder="nombre@correo.com" required />
+              <input id="correo" name="email" type="email" autocomplete="email" placeholder="nombre@correo.com" required />
             </div>
             <div class="field field-suggest">
               <label for="ciudad">Ciudad y país</label>
-              <input id="ciudad" name="ciudad" type="text" autocomplete="off" placeholder="Escribe tu ciudad y elígela de la lista"
+              <input id="ciudad" name="Ciudad y país" type="text" autocomplete="off" placeholder="Escoge tu ciudad"
                      role="combobox" aria-autocomplete="list" aria-expanded="false" aria-controls="ciudad-lista" />
               <ul class="suggest" id="ciudad-lista" role="listbox" aria-label="Ciudades" hidden></ul>
             </div>
             <div class="field">
               <label for="mensaje">Mensaje o comentario</label>
-              <textarea id="mensaje" name="mensaje" placeholder="Cuéntame lo que quieras compartir…"></textarea>
+              <textarea id="mensaje" name="Mensaje" placeholder="Cuéntame lo que quieras compartir…"></textarea>
             </div>
-            <button class="btn" type="submit">Quiero hacer parte <span>→</span></button>
-            <p class="form-note" id="turno-note" hidden>Gracias. Muy pronto este formulario quedará activo.</p>
+            <button class="btn" type="submit">Hablemos <span>→</span></button>
+            <p class="form-note" role="status" hidden>Gracias, recibí tus datos. Ya puedes descargar el primer capítulo en <a href="../libros.html#cicatrices">Mis libros</a>.</p>
           </form>
         </div>
       </div>
@@ -77,16 +78,14 @@
     </div>
 </footer>
 
+  <script src="../scripts/formularios.js?v=20261110b"></script>
   <script>
     const nav = document.getElementById('nav');
     const onScroll = () => nav.classList.toggle('is-scrolled', window.scrollY > 12);
     window.addEventListener('scroll', onScroll, { passive: true });
     onScroll();
 
-    document.getElementById('turno-form').addEventListener('submit', (e) => {
-      e.preventDefault();
-      document.getElementById('turno-note').hidden = false;
-    });
+    conectarFormulario(document.getElementById('turno-form'), 'Nuevo registro en Ahora es tu turno — anikjimenez.com');
 
     // Buscador de "Ciudad y país": sugiere ciudades de ciudades.json mientras se escribe.
     // El campo sigue aceptando texto libre si la ciudad no está en la lista.
