@@ -1234,7 +1234,7 @@ body.modal-open { overflow: hidden; }
 .footer-inner {
   width: min(1120px, 100%);
   margin: 0 auto;
-  padding: 5px 28px 12px;
+  padding: 5px 28px 4px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -1247,6 +1247,7 @@ body.modal-open { overflow: hidden; }
 }
 .footer .mark {
   line-height: 0;
+  margin-bottom: -10px;
 }
 .footer .mark img {
   height: calc(34px * var(--escala-pie));
