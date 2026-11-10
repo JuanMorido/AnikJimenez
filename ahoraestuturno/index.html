@@ -7,7 +7,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Allura&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="../styles/styles.css" />
+  <link rel="stylesheet" href="../styles/styles.css?v=20261110x" />
 </head>
 <body>
   <nav class="nav" id="nav">
@@ -30,7 +30,10 @@
 
         <div class="contact-grid">
           <div class="copy">
-            <p class="lead">Diligencia tus datos a continuación para que puedas hacer parte de esta comunidad y recibir acompañamiento en las actividades de <em>Ahora es tu turno</em>.</p>
+            <p>Me alegra que hayas llegado a este espacio seguro diseñado especialmente para ti.</p>
+            <p>Aquí encontrarás alguien que te escuche sin juzgar, herramientas para salir adelante o simplemente un momento de oración para reconfortar el alma.</p>
+            <p>No importa lo que estés cargando hoy, no tienes que hacerlo a solas.</p>
+            <p>Diligencia el formulario para recibir el primer capítulo de <strong><em>Las cicatrices que aprendí a amar</em></strong>, la historia real y los aprendizajes de quien ha tenido que enfrentar el cáncer más de una vez.</p>
             <p class="sign">— Anik</p>
           </div>
 
@@ -43,21 +46,11 @@
               <label for="correo">Correo</label>
               <input id="correo" name="correo" type="email" autocomplete="email" placeholder="nombre@correo.com" required />
             </div>
-            <div class="field">
-              <label for="whatsapp">Teléfono / WhatsApp</label>
-              <input id="whatsapp" name="whatsapp" type="tel" autocomplete="tel" placeholder="+57 300 000 0000" />
-            </div>
-            <div class="field">
+            <div class="field field-suggest">
               <label for="ciudad">Ciudad y país</label>
-              <input id="ciudad" name="ciudad" type="text" autocomplete="address-level2" />
-            </div>
-            <div class="field">
-              <label for="libro">¿Qué libro leíste?</label>
-              <select id="libro" name="libro">
-                <option value="Cuando la enfermedad se cruzó en el camino">Cuando la enfermedad se cruzó en el camino</option>
-                <option value="Las cicatrices que aprendí a amar">Las cicatrices que aprendí a amar</option>
-                <option value="Otro">Otro</option>
-              </select>
+              <input id="ciudad" name="ciudad" type="text" autocomplete="off" placeholder="Escribe tu ciudad y elígela de la lista"
+                     role="combobox" aria-autocomplete="list" aria-expanded="false" aria-controls="ciudad-lista" />
+              <ul class="suggest" id="ciudad-lista" role="listbox" aria-label="Ciudades" hidden></ul>
             </div>
             <div class="field">
               <label for="mensaje">Mensaje o comentario</label>
@@ -94,6 +87,108 @@
       e.preventDefault();
       document.getElementById('turno-note').hidden = false;
     });
+
+    // Buscador de "Ciudad y país": sugiere ciudades de ciudades.json mientras se escribe.
+    // El campo sigue aceptando texto libre si la ciudad no está en la lista.
+    (() => {
+      const campo = document.getElementById('ciudad');
+      const lista = document.getElementById('ciudad-lista');
+      const MAX = 8;
+      const sinTildes = (t) => t.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().trim();
+      let ciudades = null;
+      let carga = null;
+      let activa = -1;
+
+      const cargar = () => {
+        carga = carga || fetch('ciudades.json')
+          .then((r) => r.json())
+          .then((d) => {
+            ciudades = d.ciudades.map((entrada) => {
+              const [nombre, codigo, original] = entrada.split('|');
+              const pais = d.paises[codigo] || codigo;
+              return { nombre, pais, clave: sinTildes(nombre), alias: original ? sinTildes(original) : '', clavePais: sinTildes(pais) };
+            });
+          })
+          .catch(() => { carga = null; });
+        return carga;
+      };
+
+      // Las ciudades vienen ordenadas por población: primero las que empiezan por lo escrito,
+      // luego las que lo tienen al inicio de otra palabra. Tras una coma se filtra por país.
+      const buscar = (texto) => {
+        const [ciudad, pais = ''] = texto.split(',').map(sinTildes);
+        if (ciudad.length < 2) return [];
+        const inicio = [];
+        const palabra = [];
+        for (const c of ciudades) {
+          if (pais && !c.clavePais.startsWith(pais)) continue;
+          if (c.clave.startsWith(ciudad) || c.alias.startsWith(ciudad)) inicio.push(c);
+          else if (palabra.length < MAX && (c.clave.includes(' ' + ciudad) || c.alias.includes(' ' + ciudad))) palabra.push(c);
+          if (inicio.length === MAX) break;
+        }
+        return inicio.concat(palabra).slice(0, MAX);
+      };
+
+      const cerrar = () => {
+        lista.hidden = true;
+        lista.replaceChildren();
+        activa = -1;
+        campo.setAttribute('aria-expanded', 'false');
+        campo.removeAttribute('aria-activedescendant');
+      };
+
+      const marcar = (i) => {
+        const opciones = lista.children;
+        if (!opciones.length) return;
+        activa = (i + opciones.length) % opciones.length;
+        [...opciones].forEach((li, n) => li.setAttribute('aria-selected', n === activa ? 'true' : 'false'));
+        campo.setAttribute('aria-activedescendant', opciones[activa].id);
+        opciones[activa].scrollIntoView({ block: 'nearest' });
+      };
+
+      const elegir = (li) => {
+        campo.value = li.dataset.valor;
+        cerrar();
+      };
+
+      const mostrar = () => {
+        if (!ciudades || document.activeElement !== campo) return;
+        const resultados = buscar(campo.value);
+        if (!resultados.length || (resultados.length === 1 && `${resultados[0].nombre}, ${resultados[0].pais}` === campo.value)) return cerrar();
+        activa = -1;
+        campo.removeAttribute('aria-activedescendant');
+        lista.replaceChildren(...resultados.map((c, i) => {
+          const li = document.createElement('li');
+          const pais = document.createElement('span');
+          li.id = `ciudad-opcion-${i}`;
+          li.setAttribute('role', 'option');
+          li.setAttribute('aria-selected', 'false');
+          li.dataset.valor = `${c.nombre}, ${c.pais}`;
+          pais.textContent = c.pais;
+          li.append(`${c.nombre}, `, pais);
+          return li;
+        }));
+        lista.hidden = false;
+        campo.setAttribute('aria-expanded', 'true');
+      };
+
+      campo.addEventListener('focus', cargar);
+      campo.addEventListener('input', () => cargar().then(mostrar));
+      campo.addEventListener('blur', cerrar);
+      campo.addEventListener('keydown', (e) => {
+        if (lista.hidden) return;
+        if (e.key === 'ArrowDown') { e.preventDefault(); marcar(activa + 1); }
+        else if (e.key === 'ArrowUp') { e.preventDefault(); marcar(activa - 1); }
+        else if (e.key === 'Enter' && activa >= 0) { e.preventDefault(); elegir(lista.children[activa]); }
+        else if (e.key === 'Escape') cerrar();
+      });
+      // mousedown sin blur: el campo conserva el foco y el clic llega a la opción
+      lista.addEventListener('mousedown', (e) => e.preventDefault());
+      lista.addEventListener('click', (e) => {
+        const li = e.target.closest('li');
+        if (li) elegir(li);
+      });
+    })();
   </script>
 </body>
 </html>
