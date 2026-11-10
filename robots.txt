@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /ahoraestuturno/ciudades.json
+Disallow: /documentos/
+
+Sitemap: https://anikjimenez.com/sitemap.xml

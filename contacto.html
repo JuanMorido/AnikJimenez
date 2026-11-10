@@ -1,13 +1,39 @@
 <!doctype html>
-<html lang="es">
+<html lang="es-CO">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Contacto — Anik Jiménez Marulanda</title>
+  <meta name="description" content="Escribe a Anik Jiménez Marulanda. Formulario y correo para lectores, pacientes, cuidadores y quienes buscan sus libros de fe y esperanza." />
+  <meta name="author" content="Anik Jiménez Marulanda" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://anikjimenez.com/contacto.html" />
+  <link rel="icon" href="images/logo-anik.png" type="image/png" />
+  <meta property="og:locale" content="es_CO" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Anik Jiménez Marulanda" />
+  <meta property="og:title" content="Contacto — Anik Jiménez Marulanda" />
+  <meta property="og:description" content="Escribe a Anik Jiménez Marulanda. Un espacio para lectores y quienes buscan sus libros." />
+  <meta property="og:url" content="https://anikjimenez.com/contacto.html" />
+  <meta property="og:image" content="https://anikjimenez.com/images/foto-obra.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Contacto — Anik Jiménez Marulanda" />
+  <meta name="twitter:description" content="Escribe a Anik Jiménez Marulanda. Un espacio para lectores y quienes buscan sus libros." />
+  <meta name="twitter:image" content="https://anikjimenez.com/images/foto-obra.jpg" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Allura&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles/styles.css?v=20261110z" />
+  <link rel="stylesheet" href="styles/styles.css?v=20261110am" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ContactPage",
+    "name": "Contacto — Anik Jiménez Marulanda",
+    "url": "https://anikjimenez.com/contacto.html",
+    "inLanguage": "es-CO",
+    "about": { "@type": "Person", "name": "Anik Jiménez Marulanda", "email": "escritora@anikjimenez.com" }
+  }
+  </script>
 </head>
 <body>
   <nav class="nav" id="nav">
@@ -22,6 +48,7 @@
   </nav>
 
   <main>
+    <h1 class="visually-hidden">Contacto</h1>
     <section class="section section-paper section-fill" data-screen-label="11 Contacto">
       <div class="wrap">
         <div class="section-head">
@@ -48,12 +75,22 @@
               <label for="email">Correo</label>
               <input id="email" name="email" type="email" autocomplete="email" placeholder="nombre@correo.com" required />
             </div>
+            <div class="field field-suggest">
+              <label for="ciudad">Ciudad</label>
+              <input id="ciudad" name="Ciudad" type="text" autocomplete="off" placeholder="Escoge tu ciudad"
+                     role="combobox" aria-autocomplete="list" aria-expanded="false" aria-controls="ciudad-lista" />
+              <ul class="suggest" id="ciudad-lista" role="listbox" aria-label="Ciudades" hidden></ul>
+            </div>
             <div class="field">
               <label for="msg">Mensaje</label>
               <textarea id="msg" name="Mensaje" placeholder="Comparte conmigo" required></textarea>
             </div>
+            <label class="legal-check">
+              <input type="checkbox" name="Autorización" value="Sí, autorizo el tratamiento de mis datos personales conforme a la Política de tratamiento de datos personales." required />
+              <span>Autorizo el tratamiento de mis datos personales de acuerdo con la <a href="privacidad.html">Política de tratamiento de datos personales</a>.</span>
+            </label>
             <button class="btn" type="submit">Enviar mensaje <span>→</span></button>
-            <p class="form-note" role="status" hidden>Gracias, recibí tu mensaje. Ya puedes descargar el primer capítulo de cada libro en <a href="libros.html">Mis libros</a>.</p>
+            <p class="form-note" role="status" hidden>Gracias, recibí tu mensaje.</p>
           </form>
         </div>
       </div>
@@ -69,11 +106,11 @@
       <span>© 2026 EASI Soluciones · Bogotá, Colombia</span>
       <span>Todos los derechos reservados</span>
       <span>Versión 1</span>
-      <span>Política de privacidad</span>
+      <a href="privacidad.html">Política de privacidad</a>
     </div>
 </footer>
 
-  <script src="scripts/formularios.js?v=20261110b"></script>
+  <script src="scripts/formularios.js?v=20261110c"></script>
   <script>
     const nav = document.getElementById('nav');
     const onScroll = () => nav.classList.toggle('is-scrolled', window.scrollY > 12);
@@ -81,6 +118,88 @@
     onScroll();
 
     conectarFormulario(document.getElementById('contacto-form'), 'Mensaje desde Contacto — anikjimenez.com');
+
+    // Buscador de ciudad, el mismo de "Ahora es tu turno".
+    (() => {
+      const campo = document.getElementById('ciudad');
+      const lista = document.getElementById('ciudad-lista');
+      const MAX = 8;
+      const sinTildes = (t) => t.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().trim();
+      let ciudades = null;
+      let carga = null;
+      let activa = -1;
+      const cargar = () => {
+        carga = carga || fetch('ahoraestuturno/ciudades.json').then((r) => r.json()).then((d) => {
+          ciudades = d.ciudades.map((entrada) => {
+            const [nombre, codigo, original] = entrada.split('|');
+            const pais = d.paises[codigo] || codigo;
+            return { nombre, pais, clave: sinTildes(nombre), alias: original ? sinTildes(original) : '', clavePais: sinTildes(pais) };
+          });
+        }).catch(() => { carga = null; });
+        return carga;
+      };
+      const buscar = (texto) => {
+        const [ciudad, pais = ''] = texto.split(',').map(sinTildes);
+        if (ciudad.length < 2) return [];
+        const inicio = [];
+        const palabra = [];
+        for (const c of ciudades) {
+          if (pais && !c.clavePais.startsWith(pais)) continue;
+          if (c.clave.startsWith(ciudad) || c.alias.startsWith(ciudad)) inicio.push(c);
+          else if (palabra.length < MAX && (c.clave.includes(' ' + ciudad) || c.alias.includes(' ' + ciudad))) palabra.push(c);
+          if (inicio.length === MAX) break;
+        }
+        return inicio.concat(palabra).slice(0, MAX);
+      };
+      const cerrar = () => {
+        lista.hidden = true;
+        lista.replaceChildren();
+        activa = -1;
+        campo.setAttribute('aria-expanded', 'false');
+        campo.removeAttribute('aria-activedescendant');
+      };
+      const marcar = (i) => {
+        const opciones = lista.children;
+        if (!opciones.length) return;
+        activa = (i + opciones.length) % opciones.length;
+        [...opciones].forEach((li, n) => li.setAttribute('aria-selected', n === activa ? 'true' : 'false'));
+        campo.setAttribute('aria-activedescendant', opciones[activa].id);
+        opciones[activa].scrollIntoView({ block: 'nearest' });
+      };
+      const elegir = (li) => { campo.value = li.dataset.valor; cerrar(); };
+      const mostrar = () => {
+        if (!ciudades || document.activeElement !== campo) return;
+        const resultados = buscar(campo.value);
+        if (!resultados.length || (resultados.length === 1 && `${resultados[0].nombre}, ${resultados[0].pais}` === campo.value)) return cerrar();
+        activa = -1;
+        campo.removeAttribute('aria-activedescendant');
+        lista.replaceChildren(...resultados.map((c, i) => {
+          const li = document.createElement('li');
+          const pais = document.createElement('span');
+          li.id = `ciudad-opcion-${i}`;
+          li.setAttribute('role', 'option');
+          li.setAttribute('aria-selected', 'false');
+          li.dataset.valor = `${c.nombre}, ${c.pais}`;
+          pais.textContent = c.pais;
+          li.append(`${c.nombre}, `, pais);
+          return li;
+        }));
+        lista.hidden = false;
+        campo.setAttribute('aria-expanded', 'true');
+      };
+      campo.addEventListener('focus', cargar);
+      campo.addEventListener('input', () => cargar().then(mostrar));
+      campo.addEventListener('blur', cerrar);
+      campo.addEventListener('keydown', (e) => {
+        if (lista.hidden) return;
+        if (e.key === 'ArrowDown') { e.preventDefault(); marcar(activa + 1); }
+        else if (e.key === 'ArrowUp') { e.preventDefault(); marcar(activa - 1); }
+        else if (e.key === 'Enter' && activa >= 0) { e.preventDefault(); elegir(lista.children[activa]); }
+        else if (e.key === 'Escape') { e.preventDefault(); cerrar(); }
+      });
+      lista.addEventListener('mousedown', (e) => e.preventDefault());
+      lista.addEventListener('click', (e) => { const li = e.target.closest('li'); if (li) elegir(li); });
+    })();
   </script>
 </body>
 </html>

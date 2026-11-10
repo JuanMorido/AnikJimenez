@@ -23,7 +23,8 @@ Sitio estático personal alineado al **Manual de Marca Anik Jiménez**.
 
 ## Formularios
 
-Contacto y "Ahora es tu turno" envían sus datos al correo con [Web3Forms](https://web3forms.com).
+Contacto, "Ahora es tu turno" y el formulario de "Descargar primer capítulo" (en Mis libros)
+envían sus datos al correo con [Web3Forms](https://web3forms.com).
 La clave de acceso va en `scripts/formularios.js` (`WEB3FORMS_CLAVE`).
 
 ## Datos
