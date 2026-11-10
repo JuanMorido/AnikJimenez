@@ -861,7 +861,7 @@ em { font-style: italic; }
 }
 .book-meta {
   font-family: var(--fuente-texto);
-  font-size: 52px;
+  font-size: 26px;
   letter-spacing: .14em;
   text-transform: uppercase;
   color: var(--marron-gris);
