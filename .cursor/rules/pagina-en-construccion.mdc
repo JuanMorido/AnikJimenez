@@ -1,0 +1,11 @@
+---
+description: La raíz del sitio es la portada completa, no la página en construcción
+alwaysApply: true
+---
+
+# Portada del sitio
+
+- El 11 de noviembre de 2026 el usuario pidió **explícitamente** retirar «Sitio en construcción».
+- `index.html` es la portada completa (el contenido que antes estaba en `inicio.html`).
+- `inicio.html` solo redirige a la raíz para no romper enlaces viejos.
+- No volver a poner la página en construcción salvo orden explícita.
