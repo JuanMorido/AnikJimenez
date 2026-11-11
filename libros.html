@@ -132,7 +132,7 @@
               <p>En esa tensión, entre la fe que la sostiene y la realidad que la limita, se juega su vida. Y en cada sala de espera descubre que no es la única luchando: la fe no siempre evita el sufrimiento, pero puede transformar la forma de atravesarlo.</p>
               <p>Es una novela íntima y luminosa sobre el miedo, la esperanza y la persistencia espiritual en los momentos más oscuros. Una historia que recuerda que incluso en los pasillos más grises, siempre hay alguien dispuesto a caminar contigo.</p>
               <div class="book-download burbuja-ancla">
-                <button type="button" class="btn btn-descarga-capitulo" data-pdf="documentos/primer-capitulo-cuando-la-enfermedad-se-cruzo-en-el-camino.pdf" data-libro="Cuando la enfermedad se cruzó en el camino" aria-expanded="false" aria-controls="descarga-burbuja">¡Descarga el primer capítulo!</button>
+                <button type="button" class="btn btn-descarga-capitulo" data-capitulo="cuando" aria-expanded="false" aria-controls="descarga-modal">¡Descarga el primer capítulo!</button>
               </div>
             </details>
           </article>
@@ -153,7 +153,7 @@
               <p>Con la palabra de Dios como ancla, con la sinceridad de quien no esconde sus lágrimas ni su enojo y con una invitación constante a la propia escritura, Anik traza el mapa de un camino íntimo y universal: el de las heridas que se vuelven cicatrices y las cicatrices que se vuelven señales de amor propio.</p>
               <p>Este libro no es un tratado sobre la enfermedad. Es la mano extendida de quien ya pasó por ahí, una y otra vez, y quiere acompañar a quien lo está viviendo ahora.</p>
               <div class="book-download burbuja-ancla">
-                <button type="button" class="btn btn-descarga-capitulo" data-pdf="documentos/primer-capitulo-las-cicatrices-que-aprendi-a-amar.pdf" data-libro="Las cicatrices que aprendí a amar" aria-expanded="false" aria-controls="descarga-burbuja">¡Descarga el primer capítulo!</button>
+                <button type="button" class="btn btn-descarga-capitulo" data-capitulo="cicatrices" aria-expanded="false" aria-controls="descarga-modal">¡Descarga el primer capítulo!</button>
               </div>
             </details>
           </article>
@@ -244,26 +244,46 @@
     window.addEventListener('hashchange', openBook);
     openBook();
 
-    const dispararDescarga = (url) => {
+    const CAPITULOS = {
+      cuando: {
+        titulo: 'Cuando la enfermedad se cruzó en el camino',
+        archivo: 'documentos/cap-cuando.pdf',
+        descarga: 'Cuando la enfermedad se cruzó en el camino - Primer capítulo.pdf',
+      },
+      cicatrices: {
+        titulo: 'Las cicatrices que aprendí a amar',
+        archivo: 'documentos/cap-cicatrices.pdf',
+        descarga: 'Las cicatrices que aprendí a amar - Primer capítulo.pdf',
+      },
+    };
+
+    const dispararDescarga = async (capitulo) => {
+      if (!capitulo || !capitulo.archivo) return;
+      const respuesta = await fetch(capitulo.archivo, { cache: 'no-store' });
+      if (!respuesta.ok) return;
+      const blob = await respuesta.blob();
+      const href = URL.createObjectURL(blob);
       const enlace = document.createElement('a');
-      enlace.href = url;
-      enlace.setAttribute('download', '');
+      enlace.href = href;
+      enlace.download = capitulo.descarga;
       enlace.rel = 'noopener';
       document.body.appendChild(enlace);
       enlace.click();
       enlace.remove();
+      window.setTimeout(() => URL.revokeObjectURL(href), 4000);
     };
 
-    let pdfPendiente = '';
+    let capituloPendiente = null;
 
     const modal = document.getElementById('descarga-modal');
     const cerrarModal = document.getElementById('descarga-modal-cerrar');
     const campoLibro = document.getElementById('descarga-libro');
     const tituloModal = document.getElementById('descarga-modal-titulo');
+    const formDescarga = document.getElementById('descarga-form');
 
     const abrirModal = (boton) => {
-      pdfPendiente = boton.dataset.pdf;
-      const libro = boton.dataset.libro || '';
+      capituloPendiente = CAPITULOS[boton.dataset.capitulo] || null;
+      const libro = capituloPendiente ? capituloPendiente.titulo : '';
       campoLibro.value = libro;
       tituloModal.replaceChildren('Descarga el primer capítulo de ', Object.assign(document.createElement('em'), { textContent: libro }));
       formDescarga.querySelector('.form-note').hidden = true;
@@ -275,7 +295,6 @@
     const cerrarDescargaModal = () => {
       modal.hidden = true;
       document.body.classList.remove('modal-open');
-      pdfPendiente = '';
     };
 
     document.querySelectorAll('.btn-descarga-capitulo').forEach((boton) => {
@@ -292,13 +311,12 @@
       if (!compraModal.hidden) cerrarCompraModal();
     });
 
-    const formDescarga = document.getElementById('descarga-form');
     conectarFormulario(
       formDescarga,
       () => `Descarga del primer capítulo — ${campoLibro.value || 'Mis libros'}`,
       () => {
-        const url = pdfPendiente;
-        if (url) dispararDescarga(url);
+        const capitulo = capituloPendiente;
+        if (capitulo) dispararDescarga(capitulo);
         window.setTimeout(cerrarDescargaModal, 1200);
       }
     );
