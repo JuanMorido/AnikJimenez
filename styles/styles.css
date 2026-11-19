@@ -255,6 +255,21 @@ em { font-style: italic; }
   object-fit: cover;
   object-position: center center;
 }
+.photo-credit {
+  margin: 8px 0 0;
+  font-family: var(--fuente-texto);
+  font-size: 8.25px;
+  font-weight: 400;
+  font-style: normal;
+  letter-spacing: .06em;
+  line-height: 1.3;
+  color: #9a9086;
+  text-align: center;
+}
+.hero-photo-credit {
+  margin: 6px 0 0;
+  font-size: 8.25px;
+}
 .hero-scrim {
   position: absolute;
   inset: 0;
@@ -400,7 +415,8 @@ em { font-style: italic; }
     grid-template-rows: auto auto;
     grid-template-areas:
       "photo firma"
-      "photo books";
+      "photo books"
+      "credit .";
     justify-content: center;
     align-content: center;
     column-gap: calc(var(--hero-base) * .077);
@@ -412,6 +428,13 @@ em { font-style: italic; }
     justify-self: center;
     width: var(--photo-w);
     height: var(--photo-h);
+  }
+  .hero-photo-credit {
+    grid-area: credit;
+    justify-self: center;
+    align-self: start;
+    width: var(--photo-w);
+    margin: 8px 0 0;
   }
   .hero-photo .hero-content {
     grid-area: firma;
@@ -500,6 +523,7 @@ em { font-style: italic; }
     grid-template-columns: 1fr;
     grid-template-areas:
       "stage"
+      "credit"
       "books";
     width: 100%;
     min-height: 0;
@@ -510,6 +534,13 @@ em { font-style: italic; }
   }
   .hero-photo .hero-bg,
   .hero-photo .hero-content { grid-area: stage; }
+  .hero-photo-credit {
+    grid-area: credit;
+    color: rgba(255, 244, 230, .48);
+    background: #0a0a0a;
+    margin: 0;
+    padding: 8px 14px 12px;
+  }
   .hero-photo .hero-bg {
     position: relative;
     inset: auto;
@@ -1461,9 +1492,13 @@ main > .section > .wrap {
   padding-inline: calc(28px / var(--escala));
 }
 /* Las fotos que llenan su columna también se encogen, centradas en ella */
-.split-media .portrait:not(.round) {
+.split-media .portrait:not(.round),
+.split-media .photo-credit {
   width: calc(100% * var(--escala));
   margin-inline: auto;
+}
+.split-media .photo-credit {
+  margin-top: 8px;
 }
 @media (max-width: 600px) {
   main > .section { padding: calc(32px / var(--escala)) 0 calc(64px / var(--escala)); }
